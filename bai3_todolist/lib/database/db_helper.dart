@@ -68,11 +68,11 @@ class DbHelper {
       );
   } 
 
-  Future<int> deleteTodo(Todo todo) async{
+  Future<int> deleteTodo(int id) async{
       final db = await database;
       return await db.delete('todos',
       where: "id = ? ",
-      whereArgs: [todo.id] 
+      whereArgs: [id] 
       );
   } 
 }

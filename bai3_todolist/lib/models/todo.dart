@@ -12,26 +12,25 @@ class Todo {
     required this.title,
     this.des,
     this.dueDate,
-    this.isCompleted=0
+    this.isCompleted = 0,
   });
 
-  factory Todo.fromMap(Map<String,dynamic> map)
-  {
+  factory Todo.fromMap(Map<String, dynamic> map) {
     return Todo(
-    id: map['id'],
-    title: map['title'],
-    des: map['des'],
-    dueDate: map['dueDate'] != null ? DateTime.parse(map['dueDate']):null,
-    isCompleted: map['isCompleted'] ?? 0,
+      id: map['id'],
+      title: map['title'],
+      des: map['des'],
+      dueDate: map['dueDate'] != null ? DateTime.parse(map['dueDate']) : null,
+      isCompleted: map['isCompleted'] ?? 0,
     );
   }
-  Map<String, dynamic> toMap(){
-    return{
-      'id':id,
-      'title':title,
-      'des':des,
-      'dueDate': dueDate,
-      'iscompleted':isCompleted
-      };
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'des': des,
+      'dueDate': dueDate?.toIso8601String(),
+      'iscompleted': isCompleted,
+    };
   }
 }
